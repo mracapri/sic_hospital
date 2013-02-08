@@ -7,5 +7,3 @@ Gradle project
 Ramas:
 * master
 * persistencia
-
-Otro cambio =D
