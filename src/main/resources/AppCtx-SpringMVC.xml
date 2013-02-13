@@ -14,5 +14,6 @@
 	<context:annotation-config />
 	
 	<import resource="AppCtx-SpringMVC-View.xml" />
+	<import resource="AppCtx-Persistence.xml" />
 	
 </beans>
