@@ -38,7 +38,9 @@ public class EstadoDaoImpl extends JdbcTemplate implements EstadoDao{
 						throws SQLException {
 					Estado estado = new Estado();
 					estado.setId(rs.getInt("id_estado"));
+					estado.setClave(rs.getString("clave"));
 					estado.setDescripcion(rs.getString("estado"));
+					estado.setAvrev(rs.getString("avrev"));
 					return estado;
 				}
 				
@@ -70,7 +72,9 @@ public class EstadoDaoImpl extends JdbcTemplate implements EstadoDao{
 			public Estado mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Estado estado = new Estado();
 				estado.setId(rs.getInt("id_estado"));
+				estado.setClave(rs.getString("clave"));
 				estado.setDescripcion(rs.getString("estado"));
+				estado.setAvrev(rs.getString("avrev"));
 				return estado;
 			}
 			

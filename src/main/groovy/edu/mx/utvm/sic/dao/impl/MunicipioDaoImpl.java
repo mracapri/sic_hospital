@@ -39,6 +39,7 @@ public class MunicipioDaoImpl extends JdbcTemplate implements MunicipioDao {
 					Municipio municipio = new Municipio();
 					municipio.setId(rs.getInt("id_municipio"));
 					municipio.setIdEstado(rs.getInt("id_estado"));
+					municipio.setClave(rs.getString("clave"));
 					municipio.setDescripcion(rs.getString("municipio"));
 					return municipio;
 				}
@@ -72,6 +73,7 @@ public class MunicipioDaoImpl extends JdbcTemplate implements MunicipioDao {
 				Municipio municipio = new Municipio();
 				municipio.setId(rs.getInt("id_municipio"));
 				municipio.setIdEstado(rs.getInt("id_estado"));
+				municipio.setClave(rs.getString("clave"));
 				municipio.setDescripcion(rs.getString("municipio"));
 				return municipio;
 			}

@@ -23,7 +23,7 @@ public class TestMunicipioDao {
 	public void testMunicipioReadDao(){				
 										
 		Municipio read = municipioDao.read(1);		
-		boolean resultado = read.getDescripcion().equals("IXMIQUILPAN");
+		boolean resultado = read.getDescripcion().equals("Aguascalientes");
 		
 		/*Test*/
 		Assert.assertEquals(true, resultado);				

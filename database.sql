@@ -12,25 +12,39 @@ SET NAMES 'UTF8';
 
 CREATE TABLE IF NOT EXISTS estado (
   id_estado integer(3) NOT NULL,  
-  estado varchar(30) NOT NULL,       
+  clave varchar(2) NOT NULL,
+  estado varchar(30) NOT NULL,
+  avrev varchar(16) NOT NULL,
   PRIMARY KEY (id_estado)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE IF NOT EXISTS municipio (
   id_municipio integer(3) NOT NULL,
-  id_estado integer(3) NOT NULL,  
-  municipio varchar(30) NOT NULL,       
+  id_estado integer(3) NOT NULL,
+  clave varchar(3) NOT NULL,
+  municipio varchar(30) NOT NULL,
   PRIMARY KEY (id_municipio),
   FOREIGN KEY (id_estado) REFERENCES estado(id_estado)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+CREATE TABLE IF NOT EXISTS localidad (
+  id_localidad integer(7) NOT NULL,
+  id_municipio integer(3) NOT NULL,
+  clave varchar(4) NOT NULL,
+  localidad varchar(70) NOT NULL,
+  latitud varchar(6) NOT NULL,
+  longitud varchar(7) NOT NULL,
+  altitud varchar(4) NOT NULL,
+  PRIMARY KEY (id_localidad),  
+  FOREIGN KEY (id_municipio) REFERENCES municipio(id_municipio)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 CREATE TABLE IF NOT EXISTS institucion (
   id_institucion integer(3) NOT NULL,
-  id_municipio integer(3) NOT NULL,
-  id_estado integer(3) NOT NULL,  
+  id_municipio integer(3) NOT NULL,  
   institucion varchar(50) NOT NULL,       
   PRIMARY KEY (id_institucion),
-  FOREIGN KEY (id_estado) REFERENCES estado(id_estado),
   FOREIGN KEY (id_municipio) REFERENCES municipio(id_municipio)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

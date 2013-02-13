@@ -24,7 +24,7 @@ public class TestServicioDao {
 	public void testUnidadMedicaReadDao(){				
 		
 		Servicio read = servicioDao.read(1);		
-		boolean resultado = read.getDescripcion().equals("Consulta Externa");
+		boolean resultado = read.getDescripcion().equals("Consulta externa");
 		
 		/*Test*/
 		Assert.assertEquals(true, resultado);				

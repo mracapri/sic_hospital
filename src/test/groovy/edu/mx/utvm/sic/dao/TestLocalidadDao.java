@@ -10,30 +10,31 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.mx.utvm.sic.dominio.Institucion;
+import edu.mx.utvm.sic.dominio.Localidad;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/AppCtx-SpringMVC.xml")
 @Transactional
-public class TestInstitucionDao {
+
+public class TestLocalidadDao {
 	@Autowired
-	InstitucionDao institucionDao;
+	LocalidadDao localidadDao;
 	
 	@Test
-	public void testInstitucionReadDao(){				
+	public void testLocalidadReadDao(){				
 										
-		Institucion read = institucionDao.read(1);		
-		boolean resultado = read.getDescripcion().equals("HOSPITAL GENERAL");
+		Localidad read = localidadDao.read(1);		
+		boolean resultado = read.getDescripcion().equals("Aguascalientes");
 		
 		/*Test*/
 		Assert.assertEquals(true, resultado);				
 	}
 	
 	@Test
-	public void testInstitucionReturnAllDao(){								
+	public void testLocalidadReturnAllDao(){								
 		
 		/*Get all*/
-		List<Institucion> findAll = institucionDao.findAll();
+		List<Localidad> findAll = localidadDao.findAll();
 		 
 		/*Test*/
 		Assert.assertEquals(true, findAll.size() > 0);

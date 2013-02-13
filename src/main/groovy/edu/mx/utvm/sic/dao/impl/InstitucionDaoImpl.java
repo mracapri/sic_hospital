@@ -30,27 +30,22 @@ public class InstitucionDaoImpl extends JdbcTemplate implements InstitucionDao{
 
 	@Override
 	public Institucion read(Integer id) {
-		String sql = "SELECT * FROM institucion WHERE id_institucion=?";
-		try {
-			Institucion resultado = this.queryForObject(sql, new Object[]{ id }, new RowMapper<Institucion>(){
+		String sql = "SELECT * FROM institucion WHERE id_institucion=?";		
+		Institucion resultado = this.queryForObject(sql, new Object[]{ id }, new RowMapper<Institucion>(){
 
-				@Override
-				public Institucion mapRow(ResultSet rs, int rowNum)
-						throws SQLException {
-					Institucion institucion = new Institucion();
-					institucion.setId(rs.getInt("id_institucion"));
-					institucion.setId_estado(rs.getInt("id_estado"));
-					institucion.setId_municipio(rs.getInt("id_municipio"));
-					institucion.setDescripcion(rs.getString("institucion"));
-					return institucion;
-				}
-				
-			});
+			@Override
+			public Institucion mapRow(ResultSet rs, int rowNum)
+					throws SQLException {
+				Institucion institucion = new Institucion();
+				institucion.setId(rs.getInt("id_institucion"));				
+				institucion.setIdMunicipio(rs.getInt("id_municipio"));
+				institucion.setDescripcion(rs.getString("institucion"));
+				return institucion;
+			}
 			
-			return resultado;
-		} catch (Exception e) {
-			return null;
-		}		
+		});
+		
+		return resultado;		
 	}
 
 	@Override
@@ -74,9 +69,8 @@ public class InstitucionDaoImpl extends JdbcTemplate implements InstitucionDao{
 			public Institucion mapRow(ResultSet rs, int rowNum)
 					throws SQLException {
 				Institucion institucion = new Institucion();
-				institucion.setId(rs.getInt("id_institucion"));
-				institucion.setId_estado(rs.getInt("id_estado"));
-				institucion.setId_municipio(rs.getInt("id_municipio"));
+				institucion.setId(rs.getInt("id_institucion"));				
+				institucion.setIdMunicipio(rs.getInt("id_municipio"));
 				institucion.setDescripcion(rs.getString("institucion"));
 				return institucion;
 			}

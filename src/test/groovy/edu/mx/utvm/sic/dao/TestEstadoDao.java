@@ -23,7 +23,7 @@ public class TestEstadoDao {
 	public void testEstadoReadDao(){													
 				
 		Estado read = estadoDao.read(1);	
-		boolean resultado = read.getDescripcion().equals("HIDALGO");
+		boolean resultado = read.getDescripcion().equals("Aguascalientes");
 		
 		/*Test*/
 		Assert.assertEquals(true, resultado);				
